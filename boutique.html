@@ -1,105 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boutique - Normandie RP</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    main.boutique {
-      padding: 140px 10% 60px;
-      max-width: 1200px;
-      margin: auto;
-      color: #eee;
-      text-align: center;
-    }
-
-    .boutique h1 {
-      color: #f4c542;
-      margin-bottom: 40px;
-      text-shadow: 0 0 10px rgba(244,197,66,0.4);
-    }
-
-    .categories {
-      display: flex;
-      flex-direction: column;
-      gap: 60px;
-    }
-
-    .category h2 {
-      color: #ffd97a;
-      margin-bottom: 25px;
-      border-bottom: 2px solid rgba(255,255,255,0.1);
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .product {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px rgba(244,197,66,0.25);
-    }
-
-    .product img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .product-content {
-      padding: 15px;
-    }
-
-    .product h3 {
-      color: #f4c542;
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
-
-    .product p {
-      color: #ccc;
-      font-size: 0.9em;
-      margin-bottom: 12px;
-      min-height: 50px;
-    }
-
-    .price {
-      font-weight: bold;
-      color: #ffd75e;
-      font-size: 1.1em;
-      margin-bottom: 10px;
-    }
-
-    .btn-acheter {
-      display: inline-block;
-      padding: 8px 15px;
-      background: #f4c542;
-      color: #111;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-acheter:hover {
-      background: #ffd75e;
-      transform: scale(1.05);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- HEADER -->
@@ -111,108 +16,22 @@
       </div>
       <ul>
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="whitelist.html">Whitelist</a></li>
-        <li><a href="reglement-joueurs.html">Règlement</a></li>
         <li><a href="boutique.html" class="active">Boutique</a></li>
+        <li><a href="reglement.html">Règlement</a></li>
+        <li><a href="whitelist.html">Whitelist</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- MAIN CONTENT -->
-  <main class="boutique">
-    <h1>🛒 Boutique Officielle - Normandie RP</h1>
-    <p>Merci de soutenir le serveur ! Chaque achat permet de faire évoluer <strong>Normandie RP</strong>.  
-    Les avantages sont livrés par un membre du staff sous 24h maximum.</p>
-
-    <div class="categories">
-      <!-- Catégorie 1 -->
-      <div class="category">
-        <h2>⭐ Grades & Avantages</h2>
-        <div class="products">
-          <div class="product">
-            <img src="images/vip1.jpg" alt="Grade VIP">
-            <div class="product-content">
-              <h3>Grade VIP</h3>
-              <p>Accès à des véhicules exclusifs, priorités de file et avantages Discord.</p>
-              <div class="price">10€</div>
-              <a href="#" class="btn-acheter">Acheter</a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="images/vip2.jpg" alt="Grade Premium">
-            <div class="product-content">
-              <h3>Grade Premium</h3>
-              <p>Tous les avantages VIP + accès à des propriétés exclusives.</p>
-              <div class="price">20€</div>
-              <a href="#" class="btn-acheter">Acheter</a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="images/vip3.jpg" alt="Grade Ultimate">
-            <div class="product-content">
-              <h3>Grade Ultimate</h3>
-              <p>Grade ultime RP + pack complet de soutien serveur.</p>
-              <div class="price">35€</div>
-              <a href="#" class="btn-acheter">Acheter</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Catégorie 2 -->
-      <div class="category">
-        <h2>🚗 Véhicules & Entreprises</h2>
-        <div class="products">
-          <div class="product">
-            <img src="images/car1.jpg" alt="Voiture de luxe">
-            <div class="product-content">
-              <h3>Véhicule de Luxe</h3>
-              <p>Obtenez un véhicule haut de gamme personnalisé dans le serveur RP.</p>
-              <div class="price">25€</div>
-              <a href="#" class="btn-acheter">Acheter</a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="images/entreprise1.jpg" alt="Entreprise RP">
-            <div class="product-content">
-              <h3>Création d’Entreprise RP</h3>
-              <p>Fondez votre propre société ! Dossier et validation staff inclus.</p>
-              <div class="price">40€</div>
-              <a href="#" class="btn-acheter">Acheter</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Catégorie 3 -->
-      <div class="category">
-        <h2>💼 Objets & Divers</h2>
-        <div class="products">
-          <div class="product">
-            <img src="images/packmoney.jpg" alt="Pack Argent RP">
-            <div class="product-content">
-              <h3>Pack Argent RP</h3>
-              <p>Obtenez de l’argent RP pour booster votre activité ou entreprise.</p>
-              <div class="price">15€</div>
-              <a href="#" class="btn-acheter">Acheter</a>
-            </div>
-          </div>
-          <div class="product">
-            <img src="images/tenuevip.jpg" alt="Tenue Exclusive">
-            <div class="product-content">
-              <h3>Tenue Exclusive</h3>
-              <p>Tenue unique non accessible en jeu normal. Parfaite pour ton style RP !</p>
-              <div class="price">8€</div>
-              <a href="#" class="btn-acheter">Acheter</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="discord-link" style="margin-top:40px;">
-      💬 Besoin d’aide ou d’un remboursement ?  
-      <a href="https://discord.gg/ptuEGY3tje" target="_blank" class="btn-discord">👉 Contacte-nous sur Discord</a>
+  <main class="rules" style="text-align: center; padding-top: 160px;">
+    <h1>🛒 Boutique Normandie RP</h1>
+    <p>La boutique est actuellement <strong>en cours de création</strong>.<br>
+       Elle sera bientôt disponible avec tous les produits et moyens de paiement.</p>
+    <img src="coming-soon.png" alt="Boutique en cours" style="max-width: 400px; margin-top: 20px;">
+    <div class="discord-link" style="margin-top: 30px;">
+      💬 En attendant, rejoignez notre Discord :  
+      <a href="https://discord.gg/HNP5TUXyZm" target="_blank" class="btn-discord">👉 Discord Normandie RP</a>
     </div>
   </main>
 

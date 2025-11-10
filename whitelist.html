@@ -25,31 +25,15 @@
   <!-- MAIN CONTENT -->
   <main class="rules">
     <h1>📝 Whitelist / Candidature RP</h1>
-    <p>Pour rejoindre le serveur <strong>Normandie RP</strong>, vous devez remplir cette candidature RP avec soin. Assurez-vous d’avoir lu le règlement avant de postuler.</p>
+    <p>Pour rejoindre le serveur <strong>Normandie RP</strong>, merci de remplir le formulaire ci-dessous. Assurez-vous d’avoir lu le règlement avant de postuler.</p>
 
     <section>
-      <form id="whitelist-form">
-        <label for="nomRP">Nom et Prénom RP :</label>
-        <input type="text" id="nomRP" name="nomRP" placeholder="Ex: John Doe" required>
-
-        <label for="ageHRP">Âge HRP :</label>
-        <input type="number" id="ageHRP" name="ageHRP" placeholder="Ex: 18" required>
-
-        <label for="experienceRP">Expérience RP :</label>
-        <textarea id="experienceRP" name="experienceRP" placeholder="Ex: 2 ans sur GTA RP..." rows="4" required></textarea>
-
-        <label for="metier">Métier souhaité :</label>
-        <input type="text" id="metier" name="metier" placeholder="Ex: Policier" required>
-
-        <label for="motivation">Pourquoi rejoindre Normandie RP ?</label>
-        <textarea id="motivation" name="motivation" placeholder="Expliquez votre motivation..." rows="4" required></textarea>
-
-        <label>
-          <input type="checkbox" name="reglement" required> J’ai lu et accepté le <a href="reglement.html">règlement du serveur</a>
-        </label>
-
-        <button type="submit" class="btn">Envoyer ma candidature</button>
-      </form>
+      <!-- GOOGLE FORM IFRAME -->
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLScyw0EJkSmmq3W1i0JcgrC8AXaR5vTevONzjA8qF3JtA3fCEQ/viewform?embedded=true" 
+        width="100%" height="1500" frameborder="0" marginheight="0" marginwidth="0">
+        Chargement…
+      </iframe>
     </section>
 
     <div class="discord-link">
@@ -61,39 +45,5 @@
   <footer>
     <p>© 2025 Normandie RP — Tous droits réservés</p>
   </footer>
-
-  <!-- SCRIPT FORMULAIRE DISCORD WEBHOOK -->
-  <script>
-    const form = document.getElementById('whitelist-form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Ton webhook Discord ici
-      const webhookURL = 'https://discord.com/api/webhooks/TON_WEBHOOK_ICI';
-
-      const data = {
-        content: `**Nouvelle candidature RP**\n
-**Nom RP:** ${form.nomRP.value}\n
-**Âge HRP:** ${form.ageHRP.value}\n
-**Expérience RP:** ${form.experienceRP.value}\n
-**Métier souhaité:** ${form.metier.value}\n
-**Motivation:** ${form.motivation.value}`
-      };
-
-      try {
-        await fetch(webhookURL, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(data)
-        });
-        alert('Votre candidature a été envoyée avec succès !');
-        form.reset();
-      } catch (err) {
-        alert('Erreur lors de l’envoi, veuillez réessayer.');
-        console.error(err);
-      }
-    });
-  </script>
 </body>
 </html>
-

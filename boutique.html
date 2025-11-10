@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boutique - Normandie RP</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Styles spécifiques à la boutique */
+    .shop-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .product {
+      background: rgba(255,255,255,0.02);
+      border-left: 4px solid #f4c542;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .product .media {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.25);
+    }
+
+    .product h3 {
+      margin: 0;
+      color: #ffd97a;
+      font-size: 1.05rem;
+    }
+
+    .product p {
+      margin: 0;
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+
+    .product .price {
+      font-weight: 700;
+      color: #f4c542;
+      margin-top: 6px;
+    }
+
+    .product .actions {
+      margin-top: auto;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btn-small {
+      padding:8px 12px;
+      border-radius:8px;
+      text-decoration:none;
+      display:inline-block;
+      font-weight:600;
+    }
+
+    .btn-pay {
+      background: linear-gradient(180deg,#c47f00,#a86b00);
+      color:#111;
+      border: none;
+    }
+
+    .btn-discord-small {
+      background:#5865F2;
+      color:#fff;
+      box-shadow:0 6px 18px rgba(88,101,242,0.18);
+    }
+
+    .shop-note {
+      margin-top:18px;
+      font-size:0.95rem;
+      color:#ccc;
+      background: rgba(255,255,255,0.02);
+      padding:12px;
+      border-radius:8px;
+    }
+
+    @media (max-width:768px) {
+      main.rules { padding-top: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
+        <span class="logo-text">Normandie RP</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="reglement-joueurs.html">Règlement Joueurs</a></li>
+        <li><a href="whitelist.html">Whitelist RP</a></li>
+        <li><a href="boutique.html" class="active">Boutique</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="rules">
+    <div class="shop-header">
+      <h1>🛒 Boutique — Normandie RP (FiveM GTA V RP)</h1>
+      <p>Supportez le serveur et obtenez des avantages RP : véhicules, maisons, grades VIP et bien plus encore.</p>
+    </div>
+
+    <!-- Grid des produits -->
+    <div class="shop-grid">
+      <!-- Produit 1 -->
+      <div class="product">
+        <div class="media" style="background-image:url('assets/vehicule-pack1.jpg');"></div>
+        <h3>Pack Véhicules — Sport & Utility</h3>
+        <p>3 véhicules exclusifs : sport, SUV et utilitaire, livrés avec customisation RP.</p>
+        <div class="price">12€</div>
+        <div class="actions">
+          <a class="btn-small btn-pay" href="#">Acheter</a>
+          <a class="btn-small btn-discord-small" href="https://discord.gg/ptuEGY3tje" target="_blank">Contacter le staff</a>
+        </div>
+      </div>
+
+      <!-- Produit 2 -->
+      <div class="product">
+        <div class="media" style="background-image:url('assets/house-standard.jpg');"></div>
+        <h3>Maison Standard — Appartement</h3>
+        <p>Appartement meublé en zone résidentielle RP, stockage inclus.</p>
+        <div class="price">20€</div>
+        <div class="actions">
+          <a class="btn-small btn-pay" href="#">Acheter</a>
+          <a class="btn-small btn-discord-small" href="https://discord.gg/ptuEGY3tje" target="_blank">Contacter le staff</a>
+        </div>
+      </div>
+
+      <!-- Produit 3 -->
+      <div class="product">
+        <div class="media" style="background-image:url('assets/vip-badge.jpg');"></div>
+        <h3>Grade VIP — Avantages Premium</h3>
+        <p>File d’attente prioritaire, bonus salaire, items cosmétiques RP exclusifs.</p>
+        <div class="price">8€/mois</div>
+        <div class="actions">
+          <a class="btn-small btn-pay" href="#">S'abonner</a>
+          <a class="btn-small btn-discord-small" href="https://discord.gg/ptuEGY3tje" target="_blank">Contacter le staff</a>
+        </div>
+      </div>
+
+      <!-- Produit 4 -->
+      <div class="product">
+        <div class="media" style="background-image:url('assets/company-lot.jpg');"></div>
+        <h3>Pack Entreprise — Démarrage RP</h3>
+        <p>Crée ton entreprise RP (garage, boîte, etc.) avec emplacement et licence RP.</p>
+        <div class="price">50€</div>
+        <div class="actions">
+          <a class="btn-small btn-pay" href="#">Acheter</a>
+          <a class="btn-small btn-discord-small" href="https://discord.gg/ptuEGY3tje" target="_blank">Contacter le staff</a>
+        </div>
+      </div>
+
+      <!-- Produit 5 -->
+      <div class="product">
+        <div class="media" style="background-image:url('assets/vehicule-unique.jpg');"></div>
+        <h3>Véhicule Unique — Custom</h3>
+        <p>Véhicule unique, équilibré RP, livrable avec skin et plaque personnalisée.</p>
+        <div class="price">25€</div>
+        <div class="actions">
+          <a class="btn-small btn-pay" href="#">Acheter</a>
+          <a class="btn-small btn-discord-small" href="https://discord.gg/ptuEGY3tje" target="_blank">Contacter le staff</a>
+        </div>
+      </div>
+
+      <!-- Produit 6 -->
+      <div class="product">
+        <div class="media" style="background-image:url('assets/cosmetics.jpg');"></div>
+        <h3>Pack Cosmétiques — Tenues RP</h3>
+        <p>Tenues et accessoires RP exclusifs pour personnaliser ton personnage.</p>
+        <div class="price">6€</div>
+        <div class="actions">
+          <a class="btn-small btn-pay" href="#">Acheter</a>
+          <a class="btn-small btn-discord-small" href="https://discord.gg/ptuEGY3tje" target="_blank">Contacter le staff</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="shop-note">
+      <strong>💡 Info :</strong> Les paiements sont vérifiés par le staff. Après achat, envoyez une preuve (screenshot + pseudo RP) sur le salon Discord <em>#boutique</em>. Les livraisons sont effectuées manuellement en jeu.
+    </div>
+
+    <div style="margin-top:25px; text-align:center;">
+      <a href="https://discord.gg/ptuEGY3tje" target="_blank" class="btn-discord">Rejoindre le Discord Support Boutique</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Normandie RP — Tous droits réservés</p>
+  </footer>
+</body>
+</html>
+

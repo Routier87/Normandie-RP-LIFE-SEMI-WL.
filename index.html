@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Normandie RP | LIFE | SEMI-WL</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accueil - Normandie RP</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hero {
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: url('assets/banner.jpg') center/cover no-repeat;
+      color: white;
+      box-shadow: inset 0 0 80px rgba(0,0,0,0.6);
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #f0f0f0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .sections {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section {
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      padding: 20px 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    }
+
+    .section h2 {
+      color: #ffd97a;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: linear-gradient(180deg,#c47f00,#a86b00);
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn-discord {
+      background: #5865F2;
+      color: white;
+      box-shadow: 0 5px 20px rgba(88,101,242,0.2);
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER -->
@@ -16,25 +73,52 @@
       </div>
       <ul>
         <li><a href="index.html" class="active">Accueil</a></li>
-        <li><a href="reglement-joueurs.html">Règlement Joueurs</a></li>
         <li><a href="whitelist.html">Whitelist RP</a></li>
+        <li><a href="reglement-joueurs.html">Règlement</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-bg">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>✨ Normandie RP | LIFE | SEMI-WL ✨</h1>
-      <p>Bienvenue sur notre serveur RP immersif, convivial et géré avec passion par une équipe soudée.</p>
-      <div class="buttons">
-        <a href="reglement-joueurs.html" class="btn">📜 Règlement Joueurs</a>
-        <a href="whitelist.html" class="btn">📝 Whitelist RP</a>
-        <a href="https://discord.gg/HNP5TUXyZm" target="_blank" class="btn-discord">💬 Rejoindre le Discord</a>
-      </div>
-    </div>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Bienvenue sur Normandie RP</h1>
+    <p>Serveur GTA V RP — FiveM basé sur la Normandie 🇫🇷. Rejoignez une aventure immersive, réaliste et communautaire !</p>
+    <a href="https://discord.gg/ptuEGY3tje" target="_blank" class="btn-discord">🎮 Rejoindre le Discord</a>
   </section>
+
+  <!-- MAIN SECTIONS -->
+  <main class="sections">
+
+    <!-- Section Whitelist -->
+    <div class="section">
+      <h2>📝 Rejoindre le serveur RP</h2>
+      <p>Pour jouer sur Normandie RP, remplis le formulaire de candidature (Whitelist). Cela nous aide à garantir un RP de qualité.</p>
+      <a href="whitelist.html" class="btn">Remplir la Whitelist</a>
+    </div>
+
+    <!-- Section Règlement -->
+    <div class="section">
+      <h2>📜 Règlement du Serveur</h2>
+      <p>Avant de rejoindre le serveur, lis attentivement le règlement afin d’assurer un environnement RP sain et agréable.</p>
+      <a href="reglement-joueurs.html" class="btn">Voir le Règlement</a>
+    </div>
+
+    <!-- Section Boutique -->
+    <div class="section">
+      <h2>🛒 Boutique RP</h2>
+      <p>Découvre la boutique complète pour soutenir le serveur et obtenir des avantages RP exclusifs (grades, véhicules, entreprises, etc.).</p>
+      <a href="boutique.html" class="btn">Accéder à la Boutique</a>
+    </div>
+
+    <!-- Section Discord -->
+    <div class="section" style="text-align:center;">
+      <h2>💬 Rejoignez la Communauté</h2>
+      <p>Notre communauté est active, accueillante et modérée par une équipe sérieuse. Viens faire du RP avec d’autres passionnés !</p>
+      <a href="https://discord.gg/ptuEGY3tje" target="_blank" class="btn-discord">👉 Discord Normandie RP</a>
+    </div>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>

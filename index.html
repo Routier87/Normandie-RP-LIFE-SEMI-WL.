@@ -1,27 +1,110 @@
-/* ===== BOUTON MUSIQUE ===== */
-.music-control {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 20;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normandie RP | LIFE | SEMI-WL</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
+        <span class="logo-text">Normandie RP</span>
+      </div>
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+        <li><a href="gouvernement.html">Gouvernement</a></li>
+        <li><a href="reglement.html">Règlement</a></li>
+        <li><a href="musique.html">Musique</a></li>
+        <li><a href="jobs.html">Métiers</a></li>
+        <li><a href="whitelist.html">Candidature RP</a></li>
+        <li><a href="boutique.html">Boutique</a></li>
+      </ul>
+    </nav>
+  </header>
 
-#toggle-music {
-  background: #f4c542;
-  border: none;
-  color: #111;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero-bg">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>✨ Normandie RP | LIFE | SEMI-WL ✨</h1>
+      <p>Bienvenue sur notre serveur RP immersif, convivial et géré avec passion par une équipe soudée.</p>
 
-#toggle-music:hover {
-  background: #ffd75e;
-}
+      <div class="buttons">
+        <a href="gouvernement.html" class="btn">🏛️ Gouvernement</a>
+        <a href="reglement.html" class="btn">📜 Règlement</a>
+        <a href="musique.html" class="btn">🎵 Musique</a>
+        <a href="jobs.html" class="btn">💼 Métiers</a>
+        <a href="whitelist.html" class="btn">📋 Candidature RP</a>
+        <a href="boutique.html" class="btn">🛒 Boutique</a>
+        <a href="https://discord.gg/HNP5TUXyZm" target="_blank" class="btn-discord">💬 Discord</a>
+      </div>
+    </div>
+  </section>
 
-/* ===== ESPACE POUR LA NAVBAR FIXE ===== */
-.hero-bg {
-  margin-top: 80px;
-}
+  <!-- ===== AUDIO DE FOND ===== -->
+  <audio id="bg-music" loop>
+    <source src="musique.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ===== CONTROLES MUSIQUE ===== -->
+  <div class="music-control">
+    <button id="toggle-music">Pause</button>
+    <input type="range" id="volume-control" min="0" max="1" step="0.01" value="0.5">
+  </div>
+
+  <!-- ===== SCRIPT MUSIQUE ===== -->
+  <script>
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('toggle-music');
+    const volumeSlider = document.getElementById('volume-control');
+
+    // Démarrage automatique avec fade-in
+    window.addEventListener('load', () => {
+      music.volume = 0;
+      music.play().then(() => {
+        let vol = 0;
+        const fade = setInterval(() => {
+          if (vol < 0.5) {
+            vol += 0.05;
+            music.volume = vol;
+          } else {
+            clearInterval(fade);
+          }
+        }, 300);
+      }).catch(() => {
+        // Bloqué par navigateur, démarrage au premier clic
+        document.body.addEventListener('click', () => {
+          music.play();
+          btn.textContent = "Pause";
+        }, { once: true });
+      });
+    });
+
+    // Bouton play/pause
+    btn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "Pause";
+      } else {
+        music.pause();
+        btn.textContent = "Play";
+      }
+    });
+
+    // Slider volume
+    volumeSlider.addEventListener('input', (e) => {
+      music.volume = e.target.value;
+    });
+  </script>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 Normandie RP — Tous droits réservés</p>
+  </footer>
+</body>
+</html>

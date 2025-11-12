@@ -1,4 +1,4 @@
-/* ===== CONFIG GLOBALE ===== */ 
+/* ===== CONFIG GLOBALE ===== */
 * {
   margin: 0;
   padding: 0;
@@ -10,32 +10,6 @@ body {
   background-color: #0b0b0b;
   color: #eee;
   overflow-x: hidden;
-  position: relative;
-}
-
-/* ===== BANNIERE FOND ===== */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('banniere.png') center/cover no-repeat;
-  opacity: 0.2; /* Ajuste la transparence si nécessaire */
-  z-index: -2;
-}
-
-/* Overlay pour que le texte reste lisible */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(11,11,11,0.85);
-  z-index: -1;
 }
 
 /* ===== NAVBAR ===== */
@@ -170,7 +144,7 @@ header {
   transform: scale(1.05);
 }
 
-/* ===== PAGE REGLEMENT ===== */
+/* ===== CONTENU PAGES (GOUVERNEMENT / JOBS / MUSIQUE) ===== */
 main.rules {
   padding: 140px 10% 50px;
   max-width: 900px;
@@ -247,7 +221,22 @@ main.rules {
   text-align: center;
 }
 
-/* FOOTER */
+/* ===== SECTION VIDÉO MUSIQUE ===== */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(244, 197, 66, 0.3);
+  margin-top: 15px;
+}
+
+.video-container iframe {
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+}
+
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 25px 10px;
@@ -257,7 +246,7 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* ANIMATIONS */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity: 1;}
@@ -268,7 +257,7 @@ footer {
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;

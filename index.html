@@ -7,12 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- AUDIO DE FOND -->
-  <audio id="background-music" loop>
-    <source src="musique.mp3" type="audio/mpeg">
-    Votre navigateur ne supporte pas la lecture audio.
-  </audio>
-
   <!-- HEADER -->
   <header>
     <nav class="navbar">
@@ -23,7 +17,6 @@
       <ul>
         <li><a href="index.html" class="active">Accueil</a></li>
         <li><a href="gouvernement.html">Gouvernement</a></li>
-        <li><a href="musique.html">Musique</a></li>
       </ul>
     </nav>
   </header>
@@ -36,9 +29,9 @@
       <p>Bienvenue sur notre serveur RP immersif, convivial et géré avec passion par une équipe soudée.</p>
       <div class="buttons">
         <a href="gouvernement.html" class="btn">🏛️ Gouvernement</a>
+        <a href="reglement.html" class="btn">📜 Règlement</a>
         <a href="musique.html" class="btn">🎵 Musique</a>
         <a href="https://discord.gg/HNP5TUXyZm" target="_blank" class="btn-discord">💬 Rejoindre le Discord</a>
-        <button id="music-toggle" class="btn">▶️ Play / Pause</button>
       </div>
     </div>
   </section>
@@ -47,21 +40,5 @@
   <footer>
     <p>© 2025 Normandie RP — Tous droits réservés</p>
   </footer>
-
-  <!-- SCRIPT MUSIQUE -->
-  <script>
-    const music = document.getElementById("background-music");
-    const btn = document.getElementById("music-toggle");
-
-    btn.addEventListener("click", () => {
-      if (music.paused) {
-        music.play();
-        btn.textContent = "⏸️ Pause";
-      } else {
-        music.pause();
-        btn.textContent = "▶️ Play";
-      }
-    });
-  </script>
 </body>
 </html>

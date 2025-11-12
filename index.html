@@ -17,6 +17,8 @@
       <ul>
         <li><a href="index.html" class="active">Accueil</a></li>
         <li><a href="gouvernement.html">Gouvernement</a></li>
+        <li><a href="reglement.html">Règlement</a></li>
+        <li><a href="musique.html">Musique</a></li>
       </ul>
     </nav>
   </header>
@@ -35,6 +37,32 @@
       </div>
     </div>
   </section>
+
+  <!-- AUDIO DE FOND -->
+  <audio id="bg-music" loop autoplay>
+    <source src="musique.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas la lecture audio.
+  </audio>
+
+  <!-- BOUTON PLAY/PAUSE -->
+  <div class="music-control">
+    <button id="toggle-music">Pause</button>
+  </div>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('toggle-music');
+
+    btn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "Pause";
+      } else {
+        music.pause();
+        btn.textContent = "Play";
+      }
+    });
+  </script>
 
   <!-- FOOTER -->
   <footer>

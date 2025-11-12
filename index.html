@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Normandie RP - Accueil</title>
+  <title>Normandie RP | LIFE | SEMI-WL</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- AUDIO DE FOND -->
+  <audio id="background-music" loop>
+    <source src="musique.mp3" type="audio/mpeg">
+    Votre navigateur ne supporte pas la lecture audio.
+  </audio>
+
   <!-- HEADER -->
   <header>
     <nav class="navbar">
@@ -16,10 +22,8 @@
       </div>
       <ul>
         <li><a href="index.html" class="active">Accueil</a></li>
-        <li><a href="reglement.html">📜 Règlement Joueurs</a></li>
-        <li><a href="whitelist.html">Whitelist</a></li>
-        <li><a href="jobs.html">Métiers</a></li>
-        <li><a href="boutique.html">Boutique</a></li>
+        <li><a href="gouvernement.html">Gouvernement</a></li>
+        <li><a href="musique.html">Musique</a></li>
       </ul>
     </nav>
   </header>
@@ -28,19 +32,36 @@
   <section class="hero-bg">
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>Bienvenue sur Normandie RP</h1>
-      <p>Le serveur GTA V RP ultime sur FiveM</p>
+      <h1>✨ Normandie RP | LIFE | SEMI-WL ✨</h1>
+      <p>Bienvenue sur notre serveur RP immersif, convivial et géré avec passion par une équipe soudée.</p>
       <div class="buttons">
-        <a href="whitelist.html" class="btn">Candidature / Whitelist</a>
-        <a href="reglement.html" class="btn">Règlement</a>
-        <a href="jobs.html" class="btn">Voir les Métiers</a>
-        <a href="boutique.html" class="btn">Boutique</a>
+        <a href="gouvernement.html" class="btn">🏛️ Gouvernement</a>
+        <a href="musique.html" class="btn">🎵 Musique</a>
+        <a href="https://discord.gg/HNP5TUXyZm" target="_blank" class="btn-discord">💬 Rejoindre le Discord</a>
+        <button id="music-toggle" class="btn">▶️ Play / Pause</button>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <p>© 2025 Normandie RP — Tous droits réservés</p>
   </footer>
+
+  <!-- SCRIPT MUSIQUE -->
+  <script>
+    const music = document.getElementById("background-music");
+    const btn = document.getElementById("music-toggle");
+
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "⏸️ Pause";
+      } else {
+        music.pause();
+        btn.textContent = "▶️ Play";
+      }
+    });
+  </script>
 </body>
 </html>

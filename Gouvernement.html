@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gouvernement de la République Française RP</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(145deg, #0b0d12, #12151c);
+    color: #f1f1f1;
+    margin: 0;
+    padding: 40px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #0077ff;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(0, 119, 255, 0.3);
+  }
+
+  .table-container {
+    max-width: 100%;
+    overflow-x: auto;
+    background-color: #141820;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    padding: 15px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  thead {
+    background: #0077ff;
+    color: #fff;
+  }
+
+  th, td {
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  tbody tr:hover {
+    background-color: rgba(0,119,255,0.15);
+    transition: background-color 0.3s ease;
+  }
+
+  th {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  td {
+    font-size: 14px;
+  }
+
+  @media (max-width: 1024px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    thead {
+      display: none;
+    }
+    tr {
+      margin-bottom: 15px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    td {
+      text-align: left;
+      padding: 8px 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #0077ff;
+    }
+  }
+
+  footer {
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Gouvernement de la République Française</h1>
+
+<div class="table-container">
+<table>
+  <thead>
+    <tr>
+      <th>Grade / Poste</th>
+      <th>Rôle RP</th>
+      <th>Service / Département</th>
+      <th>Bâtiment principal</th>
+      <th>Véhicules officiels</th>
+      <th>Salaire RP (€)</th>
+      <th>Permissions / Pouvoirs</th>
+      <th>Grade In-Game / Rang Discord</th>
+      <th>Description RP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Grade / Poste">Président de la République</td>
+      <td data-label="Rôle RP">Chef de l’État</td>
+      <td data-label="Service">Gouvernement Français</td>
+      <td data-label="Bâtiment">Palais Présidentiel</td>
+      <td data-label="Véhicules">Limousine, SUV blindé</td>
+      <td data-label="Salaire">15 000</td>
+      <td data-label="Permissions">Nomination, décret, discours</td>
+      <td data-label="Grade Discord">🎖️ Président</td>
+      <td data-label="Description">Chef suprême du pays</td>
+    </tr>
+    <tr>
+      <td>Premier Ministre</td>
+      <td>Dirige le gouvernement</td>
+      <td>Gouvernement Français</td>
+      <td>Hôtel Matignon</td>
+      <td>Berline, SUV</td>
+      <td>10 000</td>
+      <td>Supervise ministères, signe décrets</td>
+      <td>🏛️ Premier Ministre</td>
+      <td>Dirige les ministres</td>
+    </tr>
+    <tr>
+      <td>Ministre de l’Intérieur</td>
+      <td>Sécurité intérieure</td>
+      <td>Ministère de l’Intérieur</td>
+      <td>Préfecture</td>
+      <td>SUV, berline</td>
+      <td>8 500</td>
+      <td>Supervise police et gendarmerie</td>
+      <td>🚓 Ministre de l’Intérieur</td>
+      <td>Responsable de la sécurité</td>
+    </tr>
+    <tr>
+      <td>Ministre de la Justice</td>
+      <td>Lois et tribunaux</td>
+      <td>Ministère de la Justice</td>
+      <td>Palais de Justice</td>
+      <td>Berline noire</td>
+      <td>8 000</td>
+      <td>Supervise justice et avocats</td>
+      <td>⚖️ Ministre de la Justice</td>
+      <td>Garant des lois</td>
+    </tr>
+    <tr>
+      <td>Ministre de la Défense</td>
+      <td>Armée et sécurité nationale</td>
+      <td>Ministère de la Défense</td>
+      <td>Base Militaire</td>
+      <td>Véhicules militaires</td>
+      <td>8 500</td>
+      <td>Gère armée et forces spéciales</td>
+      <td>🪖 Ministre de la Défense</td>
+      <td>Défend la nation</td>
+    </tr>
+    <tr>
+      <td>Ministre de la Santé</td>
+      <td>Santé publique</td>
+      <td>Ministère de la Santé</td>
+      <td>Hôpital Central</td>
+      <td>Ambulance, berline</td>
+      <td>7 000</td>
+      <td>Supervise hôpitaux et EMS</td>
+      <td>🚑 Ministre de la Santé</td>
+      <td>Responsable médical national</td>
+    </tr>
+    <tr>
+      <td>Ministre des Finances</td>
+      <td>Budget et impôts</td>
+      <td>Ministère des Finances</td>
+      <td>Trésor Public</td>
+      <td>Berline noire</td>
+      <td>7 500</td>
+      <td>Gère salaires et budgets RP</td>
+      <td>💰 Ministre des Finances</td>
+      <td>Gestion économique</td>
+    </tr>
+    <tr>
+      <td>Agent de Sécurité Gouvernementale (SPHP)</td>
+      <td>Protection rapprochée</td>
+      <td>Sécurité Gouvernementale</td>
+      <td>Siège du Gouvernement</td>
+      <td>SUV blindé</td>
+      <td>4 000</td>
+      <td>Port d’arme, escortes VIP</td>
+      <td>🛡️ Sécurité Gouvernementale</td>
+      <td>Garde du Président et ministres</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<footer>
+  © Gouvernement Français RP — Tous droits réservés.
+</footer>
+
+</body>
+</html>

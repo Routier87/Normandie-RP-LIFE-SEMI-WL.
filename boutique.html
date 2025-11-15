@@ -1,127 +1,41 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boutique - Normandie RP</title>
-  <link rel="stylesheet" href="style.css">
+<div class="logo-container">
 
-  <style>
-    /* STYLE DES CAGES */
-    .logo-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 50px;
-      flex-wrap: wrap;
-    }
+  <!-- LOGOS ACTUELS -->
+  <div class="logo-box">
+    <div class="logo-price">Indisponible</div>
+    <img src="10 000k.png" alt="Logo 1">
+  </div>
 
-    .logo-box {
-      width: 250px;
-      background: #1b1b1b;
-      border-radius: 15px;
-      border: 2px solid #444;
-      padding: 15px;
-      text-align: center;
-      transition: 0.3s;
-    }
+  <div class="logo-box">
+    <div class="logo-price">Indisponible</div>
+    <img src="50 000k.png" alt="Logo 2">
+  </div>
 
-    .logo-box:hover {
-      transform: scale(1.05);
-      border-color: #6a9eff;
-    }
+  <div class="logo-box">
+    <div class="logo-price">Indisponible</div>
+    <img src="100 000k.png" alt="Logo 3">
+  </div>
 
-    .logo-price {
-      font-size: 20px;
-      font-weight: bold;
-      color: #00ff7f;
-      margin-bottom: 10px;
-    }
+  <!-- VIP BRONZE -->
+  <div class="logo-box">
+    <div class="logo-price" style="color: #cd7f32;">VIP Bronze — 5€</div>
+    <img src="vip-bronze.png" alt="VIP Bronze">
+    <div class="logo-title">Accès VIP Bronze</div>
+  </div>
 
-    .logo-box img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      border-radius: 10px;
-      background: #0f0f0f;
-    }
+  <!-- VIP ARGENT -->
+  <div class="logo-box">
+    <div class="logo-price" style="color: #c0c0c0;">VIP Argent — 10€</div>
+    <img src="vip-argent.png" alt="VIP Argent">
+    <div class="logo-title">Accès VIP Argent</div>
+  </div>
 
-    .logo-title {
-      margin-top: 10px;
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-    }
-  </style>
+  <!-- VIP OR -->
+  <div class="logo-box">
+    <div class="logo-price" style="color: gold;">VIP Or — 20€</div>
+    <img src="vip-or.png" alt="VIP Or">
+    <div class="logo-title">Accès VIP Or</div>
+  </div>
 
-</head>
-<body>
-  <header>
-    <nav class="navbar">
-      <div class="nav-left">
-        <img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
-        <span class="logo-text">Normandie RP</span>
-      </div>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="reglement.html">Règlement</a></li>
-        <li><a href="whitelist.html">Whitelist</a></li>
-        <li><a href="jobs.html">Métiers</a></li>
-        <li><a href="boutique.html" class="active">Boutique</a></li>
-      </ul>
-    </nav>
-  </header>
+</div>
 
-  <main class="rules">
-    <h1>🛒 Boutique en cours de construction</h1>
-    <p>Voici les premiers emplacements pour les logos :</p>
-
-    <!-- 3 PREMIÈRES CAGES -->
-    <div class="logo-container">
-
-      <div class="logo-box">
-        <div class="logo-price">indisponible</div>
-        <img src="10 000k.png" alt="Logo 1">
-      </div>
-
-      <div class="logo-box">
-        <div class="logo-price">indisponible</div>
-        <img src="50 000k.png" alt="Logo 2">
-      </div>
-
-      <div class="logo-box">
-        <div class="logo-price">indisponible</div>
-        <img src="100 000k.png" alt="Logo 3">
-      </div>
-
-    </div>
-
-    <h1 style="text-align:center; margin-top:60px;">⭐ Zones VIP</h1>
-
-    <!-- 3 CAGES VIP -->
-    <div class="logo-container">
-
-      <div class="logo-box">
-        <div class="logo-price" style="color:#ffd700;">VIP Bronze</div>
-        <img src="vip-bronze.png" alt="VIP Bronze">
-      </div>
-
-      <div class="logo-box">
-        <div class="logo-price" style="color:#ffd700;">VIP Argent</div>
-        <img src="vip-argent.png" alt="VIP Argent">
-      </div>
-
-      <div class="logo-box">
-        <div class="logo-price" style="color:#ffd700;">VIP Or</div>
-        <img src="vip-or.png" alt="VIP Or">
-      </div>
-
-    </div>
-
-  </main>
-
-  <footer>
-    <p>© 2025 Normandie RP — Tous droits réservés</p>
-  </footer>
-</body>
-</html>

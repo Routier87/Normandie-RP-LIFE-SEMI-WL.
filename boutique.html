@@ -1,62 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boutique - Normandie RP</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique - Normandie RP</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* STYLE DES CAGES */
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .logo-box {
+      width: 250px;
+      background: #1b1b1b;
+      border-radius: 15px;
+      border: 2px solid #444;
+      padding: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .logo-box:hover {
+      transform: scale(1.05);
+      border-color: #6a9eff;
+    }
+
+    .logo-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00ff7f;
+      margin-bottom: 10px;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #0f0f0f;
+    }
+
+    .logo-title {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+
+    /* STYLE DU BOUTON ACHETER */
+    .buy-btn {
+      margin-top: 15px;
+      display: inline-block;
+      background: #6a9eff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #000;
+      transition: 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: #8ab4ff;
+      transform: scale(1.05);
+    }
+
+    /* STYLE PANIER (nouveau) */
+    #cart {
+      position: fixed;
+      right: 20px;
+      top: 100px;
+      width: 300px;
+      background: #1b1b1b;
+      border: 2px solid #444;
+      border-radius: 15px;
+      padding: 15px;
+      color: #fff;
+      display: none;
+      z-index: 1000;
+    }
+
+    #cart.show { display: block; }
+
+    #cart h2 { margin-bottom: 10px; color: #f4c542; }
+    #cart ul { list-style: none; padding-left: 0; max-height: 300px; overflow-y: auto; margin-bottom: 10px; }
+    #cart ul li { margin-bottom: 5px; }
+    #cart button { background: #f4c542; border: none; padding: 10px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    #cart button:hover { background: #ffd75e; }
+  </style>
 </head>
 <body>
-<header>
-  <nav class="navbar">
-    <div class="nav-left">
-      <img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
-      <span class="logo-text">Normandie RP</span>
+  <header>
+    <nav class="navbar">
+      <div class="nav-left">
+        <img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
+        <span class="logo-text">Normandie RP</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="reglement.html">Règlement</a></li>
+        <li><a href="whitelist.html">Whitelist</a></li>
+        <li><a href="jobs.html">Métiers</a></li>
+        <li><a href="boutique.html" class="active">Boutique</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="rules">
+    <h1>🛒 Boutique en cours de construction</h1>
+    <p>Voici les premiers emplacements pour les logos :</p>
+
+    <!-- 3 PREMIÈRES CAGES -->
+    <div class="logo-container">
+
+      <div class="logo-box">
+        <div class="logo-price">indisponible</div>
+        <img src="10.000k.png" alt="Logo 1">
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="logo-box">
+        <div class="logo-price">indisponible</div>
+        <img src="50.000k.png" alt="Logo 2">
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="logo-box">
+        <div class="logo-price">indisponible</div>
+        <img src="100.000k.png" alt="Logo 3">
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
     </div>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="reglement.html">Règlement</a></li>
-      <li><a href="whitelist.html">Candidature RP</a></li>
-      <li><a href="jobs.html">Métiers</a></li>
-      <li><a href="boutique.html" class="active">Boutique</a></li>
-    </ul>
-    <div class="cart-button" onclick="toggleCart()">🛒 <span id="cart-count">0</span></div>
-  </nav>
-</header>
 
-<main class="rules">
-<h1>🛒 Boutique Normandie RP</h1>
-<p>Ajoutez vos items VIP et packs RP :</p>
+    <h1 style="text-align:center; margin-top:60px;">⭐ Zones VIP</h1>
 
-<div class="logo-container">
-  <div class="logo-box">
-    <div class="logo-price">VIP Bronze</div>
-    <img src="vip-bronze.png" alt="VIP Bronze">
-    <button class="buy-btn" onclick="addToCart('VIP Bronze', 4.99)">Ajouter</button>
+    <!-- 3 CAGES VIP -->
+    <div class="logo-container">
+
+      <div class="logo-box">
+        <div class="logo-price" style="color:#cd7f32;">indisponible</div>
+        <img src="vip-bronze.png" alt="VIP Bronze">
+        <div class="logo-title">VIP Bronze</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="logo-box">
+        <div class="logo-price" style="color:#c0c0c0;">indisponible</div>
+        <img src="vip-argent.png" alt="VIP Argent">
+        <div class="logo-title">VIP Argent</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+      <div class="logo-box">
+        <div class="logo-price" style="color:gold;">indisponible</div>
+        <img src="vip-or.png" alt="VIP Or">
+        <div class="logo-title">VIP Or</div>
+        <a href="#" class="buy-btn">Acheter</a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- PANIER -->
+  <div id="cart">
+    <h2>🛒 Panier</h2>
+    <ul id="cart-items"></ul>
+    <p>Total : <span id="cart-total">0</span> €</p>
+    <button onclick="checkout()">Procéder au paiement</button>
   </div>
-  <div class="logo-box">
-    <div class="logo-price">VIP Argent</div>
-    <img src="vip-argent.png" alt="VIP Argent">
-    <button class="buy-btn" onclick="addToCart('VIP Argent', 9.99)">Ajouter</button>
-  </div>
-  <div class="logo-box">
-    <div class="logo-price">VIP Or</div>
-    <img src="vip-or.png" alt="VIP Or">
-    <button class="buy-btn" onclick="addToCart('VIP Or', 14.99)">Ajouter</button>
-  </div>
-</div>
-</main>
 
-<div id="cart" class="cart">
-  <h2>🛍 Votre Panier</h2>
-  <ul id="cart-items"></ul>
-  <p>Total : <span id="cart-total">0.00</span> €</p>
-  <button class="checkout-btn" onclick="checkout()">Procéder au paiement</button>
-</div>
+  <button onclick="document.getElementById('cart').classList.toggle('show')" 
+          style="position: fixed; top: 100px; right: 340px; padding: 10px 15px; background:#f4c542; border:none; border-radius:10px; font-weight:bold; cursor:pointer;">Voir le panier</button>
 
-<script src="script-boutique.js"></script>
-<footer>
-  <p>© 2025 Normandie RP — Tous droits réservés</p>
-</footer>
+  <footer>
+    <p>© 2025 Normandie RP — Tous droits réservés</p>
+  </footer>
+
+  <!-- Script du panier + Stripe -->
+  <script src="script-boutique.js"></script>
 </body>
 </html>

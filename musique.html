@@ -1,86 +1,48 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎵 Musiques - Normandie RP</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    main {
-      padding: 140px 10% 50px;
-      text-align: center;
-    }
-
-    h1 {
-      color: #f4c542;
-      margin-bottom: 20px;
-    }
-
-    p {
-      color: #ccc;
-      margin-bottom: 30px;
-    }
-
-    iframe {
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(244,197,66,0.3);
-    }
-
-    audio {
-      margin-top: 20px;
-      width: 100%;
-      max-width: 600px;
-    }
-
-    .video-container {
-      margin-bottom: 40px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musique - Normandie RP</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <nav class="navbar">
-      <div class="nav-left">
-        <img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
-        <span class="logo-text">Normandie RP</span>
-      </div>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="gouvernement.html">Gouvernement</a></li>
-        <li><a href="musique.html" class="active">Musique</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+<nav class="navbar">
+<div class="nav-left">
+<img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
+<span class="logo-text">Normandie RP</span>
+</div>
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="reglement.html">Règlement</a></li>
+<li><a href="musique.html" class="active">Musique</a></li>
+<li><a href="jobs.html">Métiers</a></li>
+<li><a href="boutique.html">Boutique</a></li>
+</ul>
+</nav>
+</header>
 
-  <!-- HERO SECTION -->
-  <section class="hero-bg">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>🎵 Musiques Officielles de Normandie RP 🎵</h1>
-      <p>Découvre la bande-son de Normandie RP et profite de l’ambiance du serveur !</p>
-    </div>
-  </section>
+<main class="rules">
+<h1>🎵 Musique et Médias</h1>
+<section>
+<h2>Lecteur audio</h2>
+<audio controls loop>
+  <source src="musique.mp3" type="audio/mpeg">
+  Votre navigateur ne supporte pas l’audio.
+</audio>
+</section>
 
-  <!-- CONTENU PRINCIPAL -->
-  <main>
-    <h2>🎶 Musique principale — Normandie RP Theme</h2>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/q03hY59jlnk" 
-      title="Normandie RP Theme" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
+<section>
+<h2>Vidéos RP</h2>
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+</div>
+</section>
+</main>
 
-    <p>Appuie sur “Play” pour écouter la musique du serveur RP.</p>
-
-    <audio controls>
-      <source src="musique.mp3" type="audio/mpeg">
-      Votre navigateur ne supporte pas la lecture audio.
-    </audio>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Normandie RP — Tous droits réservés</p>
-  </footer>
+<footer>
+<p>© 2025 Normandie RP — Tous droits réservés</p>
+</footer>
 </body>
 </html>

@@ -144,7 +144,7 @@ header {
   transform: scale(1.05);
 }
 
-/* ===== CONTENU PAGES (GOUVERNEMENT / JOBS / MUSIQUE) ===== */
+/* ===== CONTENU PAGES ===== */
 main.rules {
   padding: 140px 10% 50px;
   max-width: 900px;
@@ -221,7 +221,7 @@ main.rules {
   text-align: center;
 }
 
-/* ===== SECTION VIDÉO MUSIQUE ===== */
+/* ===== SECTION VIDÉO ===== */
 .video-container {
   position: relative;
   overflow: hidden;
@@ -255,6 +255,23 @@ footer {
 @keyframes fadeInDown {
   from {opacity: 0; transform: translateY(-10px);}
   to {opacity: 1; transform: translateY(0);}
+}
+
+/* ===== BADGE EN COURS DE DEV ===== */
+.dev-box {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(244, 197, 66, 0.4);
+  border-radius: 10px;
+  color: #f4c542;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(244, 197, 66, 0.25);
+  animation: fadeIn 1s ease-in-out;
+  z-index: 50;
 }
 
 /* ===== RESPONSIVE ===== */

@@ -1,37 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gouvernement</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normandie RP | Gouvernement</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 
 <body style="background: url('banniere.png') no-repeat center center fixed; background-size: cover;">
 
-    <!-- NAVBAR COMME SUR LES AUTRES PAGES -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="reglement.html">Règlement</a></li>
-            <li><a href="whitelist.html">Whitelist</a></li>
-            <li><a href="jobs.html">Métiers</a></li>
-            <li><a href="boutique.html">Boutique</a></li>
-            <li><a href="gouvernement.html" class="active">Gouvernement</a></li>
-        </ul>
-    </nav>
+<header>
+  <nav class="navbar">
+    <div class="nav-left">
+      <img src="logo.png" alt="Logo Normandie RP" class="nav-logo">
+      <span class="logo-text">Normandie RP</span>
+    </div>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="gouvernement.html" class="active">Gouvernement</a></li>
+      <li><a href="reglement.html">Règlement</a></li>
+      <li><a href="musique.html">Musique</a></li>
+      <li><a href="jobs.html">Métiers</a></li>
+      <li><a href="whitelist.html">Candidature RP</a></li>
+      <li><a href="boutique.html">Boutique</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <main class="rules">
-        <h1>Gouvernement</h1>
+<section class="hero-bg">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>🏛️ Gouvernement</h1>
+    <p>Cette page est actuellement en cours de développement.</p>
 
-        <!-- LA CAGE ASSOMBRIE -->
-        <section>
-            <p>Cette page est actuellement en cours de développement.</p>
-        </section>
-    </main>
+    <div class="buttons">
+      <a href="index.html" class="btn">🏠 Accueil</a>
+      <a href="gouvernement.html" class="btn active">🏛️ Gouvernement</a>
+      <a href="reglement.html" class="btn">📜 Règlement</a>
+      <a href="musique.html" class="btn">🎵 Musique</a>
+      <a href="jobs.html" class="btn">💼 Métiers</a>
+      <a href="whitelist.html" class="btn">📋 Candidature RP</a>
+      <a href="boutique.html" class="btn">🛒 Boutique</a>
+      <a href="https://discord.gg/HNP5TUXyZm" target="_blank" class="btn-discord">💬 Discord</a>
+    </div>
+  </div>
+</section>
 
-    <!-- BADGE EN COURS DE DEV (EN BAS À GAUCHE) -->
-    <div class="dev-box">En cours de DEV</div>
+<!-- CAGE EN BAS À GAUCHE -->
+<div class="dev-box">En cours de DEV</div>
+
+<audio id="bg-music" loop>
+  <source src="musique.mp3" type="audio/mpeg">
+</audio>
+
+<div class="music-control">
+  <button id="toggle-music">▶️ / ⏸️</button>
+  <button id="volume-up">🔊 +</button>
+  <button id="volume-down">🔉 -</button>
+</div>
+
+<script src="script.js"></script>
+
+<footer>
+  <p>© 2025 Normandie RP — Tous droits réservés</p>
+</footer>
 
 </body>
 </html>

@@ -263,13 +263,13 @@ footer {
   bottom: 20px;
   left: 20px;
   padding: 12px 20px;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(244, 197, 66, 0.4);
+  background: rgba(0, 0, 0, 0.75); /* + sombre */
+  border: 1px solid rgba(244, 197, 66, 0.35);
   border-radius: 10px;
   color: #f4c542;
   font-weight: 600;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 0 15px rgba(244, 197, 66, 0.25);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 12px rgba(244, 197, 66, 0.2);
   animation: fadeIn 1s ease-in-out;
   z-index: 50;
 }

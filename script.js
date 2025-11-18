@@ -8,7 +8,7 @@ const volumeBar = document.getElementById("volume-bar");
 const titleBox = document.getElementById("current-track");
 
 // Nom de votre musique (modifiable)
-let musicName = "Musique RP";
+let musicName = "musique.mp3";
 titleBox.textContent = musicName;
 
 // Lecture auto

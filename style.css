@@ -163,8 +163,9 @@ main.rules {
   animation: fadeInDown 1s ease-in-out;
 }
 
+/* ===== CAGE ASSOMBRIE (MODIFIÉE) ===== */
 .rules section {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(0, 0, 0, 0.55); /* cage plus sombre */
   border-left: 4px solid #f4c542;
   border-radius: 10px;
   padding: 20px;
@@ -174,31 +175,8 @@ main.rules {
 }
 
 .rules section:hover {
-  background: rgba(244, 197, 66, 0.05);
-  box-shadow: 0 0 15px rgba(244, 197, 66, 0.2);
-}
-
-.rules section h2 {
-  font-size: 1.3em;
-  margin-bottom: 10px;
-  color: #f4c542;
-  transition: color 0.3s ease;
-}
-
-.rules section:hover h2 {
-  color: #ffd75e;
-}
-
-.rules section ul li {
-  margin-bottom: 10px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.03);
-  transition: all 0.3s ease;
-}
-
-.rules section ul li:hover {
-  background: rgba(244, 197, 66, 0.1);
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 15px rgba(244, 197, 66, 0.25);
 }
 
 .signature-box {
@@ -246,6 +224,23 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* ===== BADGE EN COURS DE DEV ===== */
+.dev-box {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(244, 197, 66, 0.35);
+  border-radius: 10px;
+  color: #f4c542;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 12px rgba(244, 197, 66, 0.2);
+  animation: fadeIn 1s ease-in-out;
+  z-index: 50;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
   from {opacity: 0;}
@@ -255,23 +250,6 @@ footer {
 @keyframes fadeInDown {
   from {opacity: 0; transform: translateY(-10px);}
   to {opacity: 1; transform: translateY(0);}
-}
-
-/* ===== BADGE EN COURS DE DEV ===== */
-.dev-box {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  padding: 12px 20px;
-  background: rgba(0, 0, 0, 0.75); /* + sombre */
-  border: 1px solid rgba(244, 197, 66, 0.35);
-  border-radius: 10px;
-  color: #f4c542;
-  font-weight: 600;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 12px rgba(244, 197, 66, 0.2);
-  animation: fadeIn 1s ease-in-out;
-  z-index: 50;
 }
 
 /* ===== RESPONSIVE ===== */

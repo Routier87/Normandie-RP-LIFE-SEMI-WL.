@@ -9,21 +9,25 @@
   <style>
     /* STYLE DES CAGES */
     .logo-container {
-      display: flex;
-      justify-content: center;
+      display: flex;           /* Alignement horizontal */
+      justify-content: center; /* Centrer horizontalement */
       gap: 30px;
       margin-top: 50px;
-      flex-wrap: wrap;
+      flex-wrap: wrap;         /* Passage à la ligne si écran trop petit */
     }
 
     .logo-box {
       width: 250px;
+      height: 350px;           /* Hauteur fixe pour que les images remplissent */
       background: #1b1b1b;
       border-radius: 15px;
       border: 2px solid #444;
       padding: 15px;
       text-align: center;
       transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Espace entre image et bouton */
     }
 
     .logo-box:hover {
@@ -40,8 +44,8 @@
 
     .logo-box img {
       width: 100%;
-      height: 200px;
-      object-fit: contain;
+      height: 100%;       /* Remplit toute la hauteur disponible de la cage */
+      object-fit: cover;  /* Remplit la cage sans déformation */
       border-radius: 10px;
       background: #0f0f0f;
     }
@@ -116,9 +120,8 @@
     <h1>🛒 Boutique en cours de construction</h1>
     <p>Voici les premiers emplacements pour les logos :</p>
 
-    <!-- 3 PREMIÈRES CAGES -->
+    <!-- CAGES HORIZONTALES -->
     <div class="logo-container">
-
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="10.000k.png" alt="Logo 1">
@@ -136,14 +139,12 @@
         <img src="100.000k.png" alt="Logo 3">
         <a href="#" class="buy-btn">Acheter</a>
       </div>
-
     </div>
 
     <h1 style="text-align:center; margin-top:60px;">⭐ Zones VIP</h1>
 
-    <!-- 3 CAGES VIP -->
+    <!-- VIP HORIZONTALES -->
     <div class="logo-container">
-
       <div class="logo-box">
         <div class="logo-price" style="color:#cd7f32;">indisponible</div>
         <img src="vip-bronze.png" alt="VIP Bronze">
@@ -164,7 +165,6 @@
         <div class="logo-title">VIP Or</div>
         <a href="#" class="buy-btn">Acheter</a>
       </div>
-
     </div>
 
   </main>
@@ -184,7 +184,6 @@
     <p>© 2025 Normandie RP — Tous droits réservés</p>
   </footer>
 
-  <!-- Script du panier + Stripe -->
   <script src="script-boutique.js"></script>
 </body>
 </html>

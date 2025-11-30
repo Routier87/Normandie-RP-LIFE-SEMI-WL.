@@ -33,7 +33,7 @@
     /* PANIER */
     #cart {
       position: fixed;
-      top: 20px;
+      top: 50px;
       right: 20px;
       width: 300px;
       background: #1b1b1b;
@@ -52,7 +52,7 @@
     #cart button:hover { background:#ffd75e; }
 
     /* Bouton voir le panier */
-    #cart-toggle { position: fixed; top:20px; right:340px; padding:10px 15px; background:#f4c542; border:none; border-radius:10px; font-weight:bold; cursor:pointer; z-index:1001; }
+    #cart-toggle { position: fixed; top:20px; right:20px; padding:10px 15px; background:#f4c542; border:none; border-radius:10px; font-weight:bold; cursor:pointer; z-index:1001; }
 
     /* Animation du panier */
     #cart.highlight {
@@ -69,8 +69,8 @@
     /* Notification flottante */
     #notification {
       position: fixed;
-      top: 10px;
-      right: 340px;
+      top: 60px;
+      right: 20px;
       background: #6a9eff;
       color: #000;
       padding: 10px 15px;
@@ -112,19 +112,19 @@
         <div class="logo-price">indisponible</div>
         <img src="10.000k.png" alt="10K">
         <div class="logo-title">10K</div>
-        <button class="buy-btn" onclick="addToCart('10K')">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('10K', 'indisponible')">Acheter</button>
       </div>
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="50.000k.png" alt="50K">
         <div class="logo-title">50K</div>
-        <button class="buy-btn" onclick="addToCart('50K')">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('50K', 'indisponible')">Acheter</button>
       </div>
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="100.000k.png" alt="100K">
         <div class="logo-title">100K</div>
-        <button class="buy-btn" onclick="addToCart('100K')">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('100K', 'indisponible')">Acheter</button>
       </div>
     </div>
 
@@ -134,19 +134,19 @@
         <div class="logo-price" style="color:#cd7f32;">indisponible</div>
         <img src="vip-bronze.png" alt="VIP Bronze">
         <div class="logo-title">VIP Bronze</div>
-        <button class="buy-btn" onclick="addToCart('VIP Bronze')">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('VIP Bronze', 'indisponible')">Acheter</button>
       </div>
       <div class="logo-box">
         <div class="logo-price" style="color:#c0c0c0;">indisponible</div>
         <img src="vip-argent.png" alt="VIP Argent">
         <div class="logo-title">VIP Argent</div>
-        <button class="buy-btn" onclick="addToCart('VIP Argent')">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('VIP Argent', 'indisponible')">Acheter</button>
       </div>
       <div class="logo-box">
         <div class="logo-price" style="color:gold;">indisponible</div>
         <img src="vip-or.png" alt="VIP Or">
         <div class="logo-title">VIP Or</div>
-        <button class="buy-btn" onclick="addToCart('VIP Or')">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('VIP Or', 'indisponible')">Acheter</button>
       </div>
     </div>
   </main>
@@ -163,10 +163,6 @@
   <!-- Notification -->
   <div id="notification"></div>
 
-  <footer style="text-align:center; margin-top:50px;">
-    <p>© 2025 Normandie RP — Tous droits réservés</p>
-  </footer>
-
   <script>
     const cartItems = [];
     const cartList = document.getElementById('cart-items');
@@ -174,14 +170,17 @@
     const cartElement = document.getElementById('cart');
     const notification = document.getElementById('notification');
 
-    function addToCart(itemName) {
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1444488116483391599/DDaOnl7TTtwQQUuwbeZgFEPqLfEYDDUh2zxQSBU4daeNikbkSRWguhBn8w2d9OUrS5tm";
+    const ROLE_STAFF_ID = "1424110584424828997";
+
+    function addToCart(itemName, itemPrice) {
       const username = usernameInput.value.trim();
       if (!username) {
-        alert("Veuillez entrer votre pseudo Discord avant d'acheter !");
+        alert("Veuillez entrer votre pseudo RP avant d'acheter !");
         return;
       }
 
-      cartItems.push({ name: itemName, user: username });
+      cartItems.push({ name: itemName, price: itemPrice, user: username });
       renderCart();
 
       // Effet visuel panier
@@ -196,9 +195,9 @@
 
     function renderCart() {
       cartList.innerHTML = '';
-      cartItems.forEach((item) => {
+      cartItems.forEach(item => {
         const li = document.createElement('li');
-        li.textContent = `${item.name} - ${item.user}`;
+        li.textContent = `${item.name} - ${item.price} - ${item.user}`;
         cartList.appendChild(li);
       });
     }
@@ -209,16 +208,24 @@
         return;
       }
 
-      const WEBHOOK_URL = "https://discord.com/api/webhooks/1444488116483391599/DDaOnl7TTtwQQUuwbeZgFEPqLfEYDDUh2zxQSBU4daeNikbkSRWguhBn8w2d9OUrS5tm";
-      const ROLE_STAFF_ID = "1424110584462577838";
-
       cartItems.forEach(item => {
+        const embed = {
+          content: `<@&${ROLE_STAFF_ID}> Nouvel achat !`,
+          embeds: [{
+            title: "🛒 Achat boutique",
+            color: 0x6a9eff,
+            fields: [
+              { name: "Article", value: item.name, inline: true },
+              { name: "Prix", value: item.price, inline: true },
+              { name: "Acheteur", value: item.user, inline: false }
+            ]
+          }]
+        };
+
         fetch(WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            content: `<@&${ROLE_STAFF_ID}> Achat : ${item.name} par ${item.user}`
-          })
+          body: JSON.stringify(embed)
         });
       });
 

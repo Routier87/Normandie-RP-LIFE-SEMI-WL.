@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boutique - Normandie RP</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
     body { background:#121212; color:white; font-family:Arial, sans-serif; }
     header { background:#1b1b1b; padding:15px; }
@@ -29,19 +30,6 @@
 
     .buy-btn { margin-top:10px; display:inline-block; background:#6a9eff; padding:8px 15px; border-radius:10px; text-decoration:none; font-weight:bold; color:#000; transition:0.3s; }
     .buy-btn:hover { background:#8ab4ff; transform:scale(1.05); }
-
-    /* Panier */
-    #cart { position:fixed; top:20px; right:20px; width:300px; background:#1b1b1b; border:2px solid #444; border-radius:15px; padding:15px; color:#fff; display:none; z-index:1000; }
-    #cart.show { display:block; }
-    #cart h2 { margin-bottom:10px; color:#f4c542; }
-    #cart ul { list-style:none; padding-left:0; max-height:300px; overflow-y:auto; margin-bottom:10px; }
-    #cart ul li { margin-bottom:5px; font-size:14px; }
-    #cart button { background:#f4c542; border:none; padding:10px; border-radius:10px; font-weight:bold; cursor:pointer; transition:0.3s; }
-    #cart button:hover { background:#ffd75e; }
-
-    /* Bouton voir le panier */
-    #view-cart-btn { position:fixed; top:80px; right:20px; padding:10px 15px; background:#f4c542; border:none; border-radius:10px; font-weight:bold; cursor:pointer; }
-    #view-cart-btn:hover { background:#ffd75e; }
   </style>
 </head>
 <body>
@@ -75,19 +63,19 @@
         <div class="logo-price">indisponible</div>
         <img src="10.000k.png" alt="10K">
         <div class="logo-title">10K</div>
-        <a href="#" class="buy-btn" onclick="addToCart('10K','10.000k.png','indisponible')">Acheter</a>
+        <a href="#" class="buy-btn">Acheter</a>
       </div>
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="50.000k.png" alt="50K">
         <div class="logo-title">50K</div>
-        <a href="#" class="buy-btn" onclick="addToCart('50K','50.000k.png','indisponible')">Acheter</a>
+        <a href="#" class="buy-btn">Acheter</a>
       </div>
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="100.000k.png" alt="100K">
         <div class="logo-title">100K</div>
-        <a href="#" class="buy-btn" onclick="addToCart('100K','100.000k.png','indisponible')">Acheter</a>
+        <a href="#" class="buy-btn">Acheter</a>
       </div>
     </div>
 
@@ -97,82 +85,25 @@
         <div class="logo-price" style="color:#cd7f32;">indisponible</div>
         <img src="vip-bronze.png" alt="VIP Bronze">
         <div class="logo-title">VIP Bronze</div>
-        <a href="#" class="buy-btn" onclick="addToCart('VIP Bronze','vip-bronze.png','indisponible')">Acheter</a>
+        <a href="#" class="buy-btn">Acheter</a>
       </div>
       <div class="logo-box">
         <div class="logo-price" style="color:#c0c0c0;">indisponible</div>
         <img src="vip-argent.png" alt="VIP Argent">
         <div class="logo-title">VIP Argent</div>
-        <a href="#" class="buy-btn" onclick="addToCart('VIP Argent','vip-argent.png','indisponible')">Acheter</a>
+        <a href="#" class="buy-btn">Acheter</a>
       </div>
       <div class="logo-box">
         <div class="logo-price" style="color:gold;">indisponible</div>
         <img src="vip-or.png" alt="VIP Or">
         <div class="logo-title">VIP Or</div>
-        <a href="#" class="buy-btn" onclick="addToCart('VIP Or','vip-or.png','indisponible')">Acheter</a>
+        <a href="#" class="buy-btn">Acheter</a>
       </div>
     </div>
   </main>
 
-  <!-- Panier -->
-  <div id="cart">
-    <h2>🛒 Panier</h2>
-    <ul id="cart-items"></ul>
-    <p>Total : <span id="cart-total">0</span> €</p>
-    <button onclick="checkout()">Procéder au paiement</button>
-  </div>
-
-  <button id="view-cart-btn" onclick="document.getElementById('cart').classList.toggle('show')">Voir le panier</button>
-
   <footer style="text-align:center; margin-top:50px;">
     <p>© 2025 Normandie RP — Tous droits réservés</p>
   </footer>
-
-  <script>
-    const WEBHOOK_URL = "https://discord.com/api/webhooks/1444488116483391599/DDaOnl7TTtwQQUuwbeZgFEPqLfEYDDUh2zxQSBU4daeNikbkSRWguhBn8w2d9OUrS5tm";
-    const STAFF_ROLE_ID = "1424110584424828997";
-
-    let cart = [];
-    let total = 0;
-
-    function addToCart(name, img, price){
-      const username = document.getElementById("username").value.trim();
-      if(!username){ alert("Veuillez entrer votre pseudo avant d’acheter !"); return; }
-
-      cart.push({name, img, price, username});
-      total += 1; // Comme le prix est "indisponible", juste compteur
-      updateCart();
-      sendWebhook(name, username);
-    }
-
-    function updateCart(){
-      const ul = document.getElementById("cart-items");
-      ul.innerHTML = "";
-      cart.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = `${item.name} - ${item.price} - ${item.username}`;
-        ul.appendChild(li);
-      });
-      document.getElementById("cart-total").textContent = total;
-    }
-
-    function checkout(){
-      if(cart.length===0){ alert("Votre panier est vide !"); return; }
-      alert("Merci pour votre achat !");
-      cart = [];
-      total = 0;
-      updateCart();
-    }
-
-    function sendWebhook(itemName, username){
-      fetch(WEBHOOK_URL, {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body: JSON.stringify({
-          content:`<@&${STAFF_ROLE_ID}> Nouvelle commande : ${itemName} acheté par ${username}`
-        })
-      });
-    }
-  </script>
 </body>
 </html>

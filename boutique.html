@@ -64,6 +64,7 @@
       font-weight: bold;
       color: #000;
       transition: 0.3s;
+      cursor: pointer;
     }
 
     .buy-btn:hover {
@@ -109,6 +110,21 @@
       transition: 0.3s;
     }
     #show-cart-btn:hover { background: #ffd75e; }
+
+    /* CHAMP PSEUDO */
+    #username-field {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+    }
+    #username-field input {
+      padding: 8px;
+      border-radius: 10px;
+      border: 2px solid #444;
+      width: 200px;
+      text-align: center;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -128,6 +144,12 @@
     </nav>
   </header>
 
+  <!-- CHAMP PSEUDO -->
+  <div id="username-field">
+    <label for="username">Entrez votre pseudo : </label>
+    <input type="text" id="username" placeholder="Votre pseudo">
+  </div>
+
   <!-- BOUTON VOIR LE PANIER -->
   <button id="show-cart-btn" onclick="document.getElementById('cart').classList.toggle('show')">Voir le panier</button>
 
@@ -140,19 +162,17 @@
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="10.000k.png" alt="Logo 1">
-        <a href="#" class="buy-btn" onclick="addToCart('10K', '10.000k.png', 'indisponible')">Acheter</a>
+        <a class="buy-btn" onclick="addToCart('10K', '10.000k.png', 'indisponible')">Acheter</a>
       </div>
-
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="50.000k.png" alt="Logo 2">
-        <a href="#" class="buy-btn" onclick="addToCart('50K', '50.000k.png', 'indisponible')">Acheter</a>
+        <a class="buy-btn" onclick="addToCart('50K', '50.000k.png', 'indisponible')">Acheter</a>
       </div>
-
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="100.000k.png" alt="Logo 3">
-        <a href="#" class="buy-btn" onclick="addToCart('100K', '100.000k.png', 'indisponible')">Acheter</a>
+        <a class="buy-btn" onclick="addToCart('100K', '100.000k.png', 'indisponible')">Acheter</a>
       </div>
     </div>
 
@@ -164,21 +184,19 @@
         <div class="logo-price" style="color:#cd7f32;">indisponible</div>
         <img src="vip-bronze.png" alt="VIP Bronze">
         <div class="logo-title">VIP Bronze</div>
-        <a href="#" class="buy-btn" onclick="addToCart('VIP Bronze', 'vip-bronze.png', 'indisponible')">Acheter</a>
+        <a class="buy-btn" onclick="addToCart('VIP Bronze', 'vip-bronze.png', 'indisponible')">Acheter</a>
       </div>
-
       <div class="logo-box">
         <div class="logo-price" style="color:#c0c0c0;">indisponible</div>
         <img src="vip-argent.png" alt="VIP Argent">
         <div class="logo-title">VIP Argent</div>
-        <a href="#" class="buy-btn" onclick="addToCart('VIP Argent', 'vip-argent.png', 'indisponible')">Acheter</a>
+        <a class="buy-btn" onclick="addToCart('VIP Argent', 'vip-argent.png', 'indisponible')">Acheter</a>
       </div>
-
       <div class="logo-box">
         <div class="logo-price" style="color:gold;">indisponible</div>
         <img src="vip-or.png" alt="VIP Or">
         <div class="logo-title">VIP Or</div>
-        <a href="#" class="buy-btn" onclick="addToCart('VIP Or', 'vip-or.png', 'indisponible')">Acheter</a>
+        <a class="buy-btn" onclick="addToCart('VIP Or', 'vip-or.png', 'indisponible')">Acheter</a>
       </div>
     </div>
 
@@ -196,18 +214,23 @@
     <p>© 2025 Normandie RP — Tous droits réservés</p>
   </footer>
 
-  <!-- SCRIPT PANIER + WEBHOOK -->
   <script>
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1444488116483391599/DDaOnl7TTtwQQUuwbeZgFEPqLfEYDDUh2zxQSBU4daeNikbkSRWguhBn8w2d9OUrS5tm";
-    const STAFF_ROLE_ID = "1424110584424828997"; // nouveau rôle Staff
+    const STAFF_ROLE_ID = "1424110584424828997"; // rôle Staff
 
     let cart = [];
     let total = 0;
 
     function addToCart(name, image, price) {
+      const usernameInput = document.getElementById('username').value;
+      if (!usernameInput) {
+        alert("Veuillez entrer votre pseudo avant d'acheter !");
+        return;
+      }
+
       cart.push({name, image, price});
       updateCart();
-      sendToDiscord("PseudoUtilisateur", name, price); // remplace PseudoUtilisateur par l'username réel
+      sendToDiscord(usernameInput, name, price);
     }
 
     function updateCart() {

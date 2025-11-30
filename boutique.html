@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boutique - Normandie RP</title>
   <link rel="stylesheet" href="style.css">
-
   <style>
     body { font-family: Arial, sans-serif; background: #121212; color: #fff; }
 
@@ -52,9 +51,10 @@
     }
     .buy-btn:hover { background: #8ab4ff; transform: scale(1.05); }
 
+    /* PANIER */
     #cart-toggle {
       position: fixed;
-      top: 10px;
+      top: 60px; /* bouton légèrement plus bas */
       right: 20px;
       padding: 10px 15px;
       background: #f4c542;
@@ -69,7 +69,7 @@
 
     #cart {
       position: fixed;
-      top: 50px;
+      top: 100px;
       right: 20px;
       width: 280px;
       max-height: 400px;
@@ -93,6 +93,19 @@
       padding: 5px 0;
       border-bottom: 1px solid #333;
       font-size: 14px;
+    }
+    #cart-thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    #cart-thumbnails img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 1px solid #444;
     }
     #cart button {
       width: 100%;
@@ -135,19 +148,19 @@
         <div class="logo-price">indisponible</div>
         <img src="10.000k.png" alt="Logo 10k">
         <div class="logo-title">10k</div>
-        <button class="buy-btn" onclick="addToCart('10k',0)">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('10k',0,'10.000k.png')">Acheter</button>
       </div>
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="50.000k.png" alt="Logo 50k">
         <div class="logo-title">50k</div>
-        <button class="buy-btn" onclick="addToCart('50k',0)">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('50k',0,'50.000k.png')">Acheter</button>
       </div>
       <div class="logo-box">
         <div class="logo-price">indisponible</div>
         <img src="100.000k.png" alt="Logo 100k">
         <div class="logo-title">100k</div>
-        <button class="buy-btn" onclick="addToCart('100k',0)">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('100k',0,'100.000k.png')">Acheter</button>
       </div>
     </div>
 
@@ -158,25 +171,27 @@
         <div class="logo-price" style="color:#cd7f32;">indisponible</div>
         <img src="vip-bronze.png" alt="VIP Bronze">
         <div class="logo-title">VIP Bronze</div>
-        <button class="buy-btn" onclick="addToCart('VIP Bronze',0)">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('VIP Bronze',0,'vip-bronze.png')">Acheter</button>
       </div>
       <div class="logo-box">
         <div class="logo-price" style="color:#c0c0c0;">indisponible</div>
         <img src="vip-argent.png" alt="VIP Argent">
         <div class="logo-title">VIP Argent</div>
-        <button class="buy-btn" onclick="addToCart('VIP Argent',0)">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('VIP Argent',0,'vip-argent.png')">Acheter</button>
       </div>
       <div class="logo-box">
         <div class="logo-price" style="color:gold;">indisponible</div>
         <img src="vip-or.png" alt="VIP Or">
         <div class="logo-title">VIP Or</div>
-        <button class="buy-btn" onclick="addToCart('VIP Or',0)">Acheter</button>
+        <button class="buy-btn" onclick="addToCart('VIP Or',0,'vip-or.png')">Acheter</button>
       </div>
     </div>
   </main>
 
+  <!-- PANIER -->
   <div id="cart">
     <h2>🛒 Panier</h2>
+    <div id="cart-thumbnails"></div>
     <ul id="cart-items"></ul>
     <p>Total : <span id="cart-total">0</span> €</p>
     <button onclick="checkout()">Procéder au paiement</button>
@@ -188,14 +203,16 @@
 
   <script>
     const WEBHOOK_URL = "https://discord.com/api/webhooks/1444488116483391599/DDaOnl7TTtwQQUuwbeZgFEPqLfEYDDUh2zxQSBU4daeNikbkSRWguhBn8w2d9OUrS5tm";
+    const STAFF_ROLE_ID = "1437481487866794036";
+
     let cart = [];
     let total = 0;
 
-    function addToCart(name, price) {
+    function addToCart(name, price, imgSrc) {
       const username = prompt("Veuillez entrer votre pseudo Discord :");
       if(!username) return alert("Vous devez entrer un pseudo Discord !");
 
-      cart.push({name, price, username});
+      cart.push({name, price, username, imgSrc});
       total += price;
       updateCart();
       sendToDiscord(username, name, price);
@@ -203,14 +220,22 @@
 
     function updateCart() {
       const cartItems = document.getElementById('cart-items');
+      const cartThumb = document.getElementById('cart-thumbnails');
       cartItems.innerHTML = '';
+      cartThumb.innerHTML = '';
       cart.forEach(item => {
+        // Liste
         const li = document.createElement('li');
         li.textContent = item.name;
         const span = document.createElement('span');
         span.textContent = item.price + ' €';
         li.appendChild(span);
         cartItems.appendChild(li);
+
+        // Miniature
+        const img = document.createElement('img');
+        img.src = item.imgSrc;
+        cartThumb.appendChild(img);
       });
       document.getElementById('cart-total').textContent = total;
     }
@@ -229,7 +254,7 @@
 
     function sendToDiscord(username, product, price) {
       const payload = {
-        content: `📦 **Nouvel achat !**\nUtilisateur : ${username}\nProduit : ${product}\nPrix : ${price} €`
+        content: `<@&${STAFF_ROLE_ID}> 📦 **Nouvel achat !**\nUtilisateur : ${username}\nProduit : ${product}\nPrix : ${price} €`
       };
 
       fetch(WEBHOOK_URL, {
@@ -238,7 +263,7 @@
         body: JSON.stringify(payload)
       })
       .then(res => {
-        if(res.ok) console.log("Message envoyé sur Discord !");
+        if(res.ok) console.log("Message envoyé sur Discord et ping Staff !");
         else console.error("Erreur lors de l'envoi sur Discord");
       })
       .catch(err => console.error("Erreur fetch Discord :", err));
